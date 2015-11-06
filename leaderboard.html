@@ -1,0 +1,38 @@
+<head>
+  <title>排行榜</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="logo"></div>
+    <h1 class="title">排行榜</h1>
+    <div class="subtitle">请大家认真用脚投票！</div>
+    {{> leaderboard}}
+  </div>
+</body>
+
+<template name="leaderboard">
+  <ol class="leaderboard">
+    {{#each players}}
+      {{> player}}
+    {{/each}}
+  </ol>
+
+  {{#if selectedName}}
+    <div class="details">
+      <div class="name">{{selectedName}}</div>
+      <button class="inc">加 5 分</button>
+    </div>
+  {{else}}
+    <div class="message">直接点击某个项目即可选中</div>
+  {{/if}}
+</template>
+
+<template name="player">
+  <li class="player {{selected}}">
+    <span class="name">{{name}}</span>
+    <span class="score">{{score}}</span>
+  </li>
+</template>
