@@ -41,12 +41,20 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     if (Players.find().count() === 0) {
-      var names = ["Ada Lovelace", "Grace Hopper", "Marie Curie",
-                   "Carl Friedrich Gauss", "Nikola Tesla", "Claude Shannon"];
+      var names = [
+                    "正跑五圈",
+                    "倒跑五圈",
+                    "带球正跑五圈",
+                    "带球逆跑五圈",
+                    "八字形正向运球20次",
+                    "八字形倒向运球20次",
+                    "八字形正向倒向混合运球20次",
+                    "运球练习各100次"
+                  ];
       _.each(names, function (name) {
         Players.insert({
           name: name,
-          score: Math.floor(Random.fraction() * 10) * 5
+          score: 0
         });
       });
     }
